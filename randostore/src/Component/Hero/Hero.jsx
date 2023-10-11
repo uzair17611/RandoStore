@@ -19,7 +19,7 @@ const Hero = () => {
 
        </div>
 
-       <div className="flex justify-center items-center bg-red-500 rounded-md mt-10 text-white w-[310px]  h-[70px]">
+       <div className="flex justify-center items-center bg-red-500 rounded-full mt-10 text-white w-[310px]  h-[70px]">
         <div>Latest Collection</div>
        <img src={arrow_icon} alt="" />
        </div>
