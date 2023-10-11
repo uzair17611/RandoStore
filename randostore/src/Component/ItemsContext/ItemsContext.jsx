@@ -11,7 +11,7 @@ export const ItemsContext =createContext(null)
 
 
 
-const   ItemContextProvider =()=>{
+const   ItemContextProvider =(props)=>{
 const  contextValue={all_Product}
 
 return (
@@ -21,3 +21,5 @@ return (
 )
 
 }
+
+export default ItemContextProvider
