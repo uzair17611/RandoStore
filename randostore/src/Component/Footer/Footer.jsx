@@ -6,44 +6,83 @@ import pinterest from "../Assets/pintester_icon.png"
 
 const Footer = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-10">
-   <div className="flex item-center gap-10">
+    <footer className="bg-gradient-to-r from-[#fde1ff] via-[#e1ffea22] to-transparent text-gray-800 p-10">
+  <div className="container mx-auto flex flex-wrap">
+    {/* Quick Links */}
+    <div className="w-full md:w-1/4">
+      <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
+      <ul className="list-none p-0">
+        <li className="mb-2">
+          <a href="#" className="hover:text-gray-500">Home</a>
+        </li>
+        <li className="mb-2">
+          <a href="#" className="hover:text-gray-500">Shop</a>
+        </li>
+        <li className="mb-2">
+          <a href="#" className="hover:text-gray-500">Categories</a>
+        </li>
+        <li className="mb-2">
+          <a href="#" className="hover:text-gray-500">Contact</a>
+        </li>
+      </ul>
+    </div>
 
-    <img src={footer_logo} alt="" />
-    <p className="text-20  font-semibold text-[#323232]">Shopper</p>
-   </div>
-       <ul className="flex style-none gap-10 text-[#252525]">
-        <li className="cursor-pointer">Company</li>
-        <li>Offices</li>
-        <li>about</li>
-        <li>Product</li>
-        <li>Contact</li>
-       </ul>
-       <div className="flex gap-10">
-     <div className="mt-2 p-2 border border-white">
-        <img src={instagram} alt="" />
-       </div>
-       
-       <div className="mt-2 p-2 border border-white">
-        <img src={Watsapp} alt="" />
-        </div>
-        <div className="mt-2 p-2 border border-white">
-        <img src={pinterest} alt="" />
-       </div>
-      
-     
-     </div>
-    
-     <div className="flex flex-col items-center gap-30 w-full text-[#1a1a1a]">
-     <hr  className="w-80  h-12  border-none rounded-md bg-white"/>
-        <p>copy right 2023 all right reserved</p>
-   
-     </div>
-            
+    {/* Contact Information */}
+    <div className="w-full md:w-1/4">
+      <h3 className="text-xl font-semibold mb-4">Contact</h3>
+      <p className="mb-2">123 Street, City</p>
+      <p className="mb-2">Email: info@example.com</p>
+      <p>Phone: +1 234 567 890</p>
+    </div>
 
-       </div>
-  
-   
+    {/* Social Media Links */}
+    <div className="w-full md:w-1/4">
+      <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
+      <div className="flex space-x-4">
+        <a href="#" className="text-2xl hover:text-gray-500">
+          <i className="fab fa-facebook"></i>
+        </a>
+        <a href="#" className="text-2xl hover:text-gray-500">
+          <i className="fab fa-twitter"></i>
+        </a>
+        <a href="#" className="text-2xl hover:text-gray-500">
+          <i className="fab fa-instagram"></i>
+        </a>
+        <a href="#" className="text-2xl hover:text-gray-500">
+          <i className="fab fa-pinterest"></i>
+        </a>
+      </div>
+    </div>
+
+    {/* Newsletter Subscription */}
+    <div className="w-full md:w-1/4">
+      <h3 className="text-xl font-semibold mb-4">Subscribe to Newsletter</h3>
+      <div className="flex items-center">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          className="py-2 px-3 mr-2 w-2/3"
+        />
+        <button className="bg-white text-gray-900 py-2 px-4 rounded hover:bg-gray-100">
+          Subscribe
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {/* Bottom Bar */}
+  <div className="border-t border-gray-800 mt-8 pt-8 flex justify-between items-center">
+    <p>&copy; 2023 Your E-Commerce. All rights reserved.</p>
+    <div className="flex space-x-4">
+      <a href="#" className="text-gray-500 hover:text-white">
+        Terms of Service
+      </a>
+      <a href="#" className="text-gray-500 hover:text-white">
+        Privacy Policy
+      </a>
+    </div>
+  </div>
+</footer>
   )
 }
 

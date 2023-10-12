@@ -1,22 +1,48 @@
 import React from 'react'
 import data_product from "../Assets/data"
 import Items from '../Items/Items'
+import axiosRequest from '../../Utilis/axiosRequest'
+import { useState,useEffect } from 'react'
+import { backEndbaseURL } from '../../Utilis/baseUrl'
 
 const Popular = () => {
+    const [product ,setProduct] =useState([])
+    useEffect(() => {
+        
+    const fetchProduct =async()=>{
+
+        try {
+            const  response = await axiosRequest.get("/items");
+            console.log(response);
+            setProduct(response.data ?? [] )
+             
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    fetchProduct()
+        
+        
+      }, []);
+
+
     console.log("dataproduct" ,data_product)
   return (
-    <div className="flex items-center gap-10 flex-col h-[90vh]">
+    <div className="flex items-center gap-10 flex-col h-auto ">
     <h1 className="text-50 font-semibold text-black text-3xl">Popular in women</h1>
     <hr className="w-[200px] h-[6px] rounded bg-green-950" />
-<div className='flex  gap-10 '>
-    {data_product.map((item ,i)=>{
+<div className='grid grid-cols-4 gap-4 '>
+    {product.map((item ,i)=>{
         return(
        <Items key={i} 
-       id={item.id}  
+       
        name={item.name}  
-       image={item.image} 
-        new_price={item.new_price}
-         old_price={item.old_price}/>
+       image={backEndbaseURL + "/" + (item?.img || '')} 
+        new_price={item.price}
+       />
         )
     })}
 </div>
