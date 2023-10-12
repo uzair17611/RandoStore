@@ -29,7 +29,7 @@ const CatagoryPage = (props) => {
           </div>
         </div>
   
-        <div className="grid grid-cols-4 row-gap-4 m-20  mx-170  gap-y-8">
+        <div className="grid grid-cols-4 row-gap-4 m-20  mx-170  gap-y-8  gap-4">
           {all_Product.map((item, i) => {
             if (props.catagory === item.category) {
               return <Items
@@ -46,7 +46,10 @@ const CatagoryPage = (props) => {
             }
           })}
         </div>
-        
+
+        <div className="flex justify-center items-center w-[233px] h-[69px] text-[18px] font-semibold bg-slate-100 m-auto  rounded-full mb-10">
+  Explore More
+</div>
       </div>
     );
   };
