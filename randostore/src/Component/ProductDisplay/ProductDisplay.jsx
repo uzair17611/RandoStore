@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import start_icon from "../Assets/star_icon.png"
 import start_dull_icon from "../Assets/star_dull_icon.png"
+import { ItemsContext } from '../ItemsContext/ItemsContext'
 
 const ProductDisplay = (props) => {
- 
+    const {addToCART} = useContext(ItemsContext)
     const {product}  =props
 
     console.log("Product",product)
@@ -59,7 +60,7 @@ const ProductDisplay = (props) => {
                     <div  className='border border-slate-300 rounded  cursor-pointer px-3 py-2'>XXL</div>
                 </div>
                </div>
-               <button className="border-none outline-none cursor-pointer bg-red-500 text-white font-bold rounded-md p-3 flex items-center justify-center">Add to cart</button>
+               <button className="border-none outline-none cursor-pointer bg-red-500 text-white font-bold rounded-md p-3 flex items-center justify-center" onClick={()=>{addToCART(product.id)}}>Add to cart</button>
                <p className="mt-10">
               <span className='font-bold'>  catagory :</span> women T-shirt crop Top
 
