@@ -8,8 +8,8 @@ const BreadCrums = (props) => {
     
 
     return (
-        <div className="flex">
-            home <img src={arrow_icon} alt="" />  shop <img src={arrow_icon} alt="" /> {} <img src={arrow_icon} alt="" /> {product && product.name}
+        <div className="flex items-center m-auto mt-10 mb-10 justify-center gap-10">
+            home <img src={arrow_icon} alt="" />  shop <img src={arrow_icon} alt="" /> Mens <img src={arrow_icon} alt="" /> {product.name}
         </div>
     )
 }
