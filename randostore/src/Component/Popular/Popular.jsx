@@ -3,6 +3,7 @@ import data_product from "../Assets/data"
 import Items from '../Items/Items'
 
 const Popular = () => {
+    console.log("dataproduct" ,data_product)
   return (
     <div className="flex items-center gap-10 flex-col h-[90vh]">
     <h1 className="text-50 font-semibold text-black text-3xl">Popular in women</h1>

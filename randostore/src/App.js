@@ -13,6 +13,7 @@ import kid_banner from "./Component/Assets/banner_kids.png"
 import men_banner from "./Component/Assets/banner_mens.png"
 import SignUp from './Pages/SignUp';
 
+
 function App() {
   return (
     <div className="App">
@@ -24,7 +25,7 @@ function App() {
           <Route path="/women" element={<CatagoryPage  banner={women_banner}  catagory="women"/>} />
           <Route path="/kids" element={<CatagoryPage  banner={kid_banner} catagory="kid"/>} />
           <Route path="/product" element={<Products />}>
-          <Route path=":productID" element={<Products />}/>
+          <Route path=":productId" element={<Products />}/>
           </Route>
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<LoginSignup/>} />
