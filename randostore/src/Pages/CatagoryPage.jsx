@@ -14,17 +14,22 @@ const CatagoryPage = (props) => {
   
     return (
       <div>
-        <img src={props.banner} alt="" />
+        <img src={props.banner} alt="" className="block w-[82%] mx-auto" />
   
-        <div>
-          <span>showing 1-12</span>out of 1-36
+        <div className="flex  justify-between items-center">
+   
+          <div className='ml-20 mt-5'>
+            <p className="font-semibold">
+          <span className="font-semibold" >showing 1-12</span>out of 1-36
+          </p>
+          </div>
   
-          <div>
-            sort by <img src={drop_down_icon} alt="" />
+          <div className='px-4 py-2 flex mr-10  border-1 border border-black rounded-full mt-5'>
+            sort by <img src={drop_down_icon} alt="" className='w-[30px]' />
           </div>
         </div>
   
-        <div>
+        <div className="grid grid-cols-4 row-gap-4 m-20  mx-170  gap-y-8">
           {all_Product.map((item, i) => {
             if (props.catagory === item.category) {
               return <Items
@@ -41,6 +46,7 @@ const CatagoryPage = (props) => {
             }
           })}
         </div>
+        
       </div>
     );
   };
