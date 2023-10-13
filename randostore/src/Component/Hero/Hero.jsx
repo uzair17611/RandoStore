@@ -23,11 +23,11 @@ const Hero = () => {
             />
           </div>
           <p className="text-7xl font-bold animate__animated animate__fadeIn animate__delay-3s transition-transform transform hover:scale-105">
-            collections
-          </p>
-          <p className="text-7xl font-bold animate__animated animate__fadeIn animate__delay-4s transition-transform transform hover:scale-105">
-            For everyone
-          </p>
+    collections
+  </p>
+  <p className="text-7xl font-bold animate__animated animate__fadeIn animate__delay-4s transition-transform transform hover:scale-105">
+    For everyone
+  </p>
         </div>
 
         <div className="flex justify-center  items-center bg-red-500 rounded-full mt-10 text-white w-[310px] h-[70px] animate__animated animate__fadeIn animate__delay-5s transition-transform transform hover:scale-105">

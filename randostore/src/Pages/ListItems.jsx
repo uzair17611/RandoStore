@@ -12,7 +12,6 @@ const ListItems = () => {
     <Offer/>
     <NewCollection/>
     <NewsLetter/>
-    
     </div>
   )
 }

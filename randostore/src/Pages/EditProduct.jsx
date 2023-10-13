@@ -1,46 +1,53 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import axiosRequest from '../Utilis/axiosRequest';
+import { useParams } from 'react-router-dom';
+
 
 
 const EditProduct = () => {
-    const [productData, setProductData] = useState({
-        name: '',
-        id: '',
-        price: '',
-        image: '',
-      });
-    
-      // Fetch product data when the component mounts
-    //   useEffect(() => {
-    //     const fetchProductData = async () => {
-    //       try {
-    //         const response = await axiosRequest.get(`/items/${productId}`);
-    //         const product = response.data;
-    //         setProductData({
-    //           name: product.name,
-    //           id: product.id,
-    //           price: product.price,
-    //           image: product.img,
-    //         });
-    //       } catch (error) {
-    //         console.error('Error fetching product data:', error);
-    //       }
-    //     };
-    
-    //     fetchProductData();
-    //   }, [productId]);
-    
-      const handleChange = (e) => {
-        setProductData({ ...productData, [e.target.name]: e.target.value });
-      };
-    
-      const handleSave = () => {
-        // Perform actions to save changes
-        // For example, you might want to update the product in your data source
-        console.log('Changes saved!');
-       
-      };
-    
+    const { productId } = useParams();
+  const [productData, setProductData] = useState({
+    name: '',
+    id: '',
+    price: '',
+    image: '',
+  });
+
+  useEffect(() => {
+    const fetchProductData = async () => {
+      try {
+        const response = await axiosRequest.get(`/items/${productId}`);
+        const product = response.data;
+
+        // Prefill the form fields with the fetched data
+        setProductData({
+          name: product.name,
+          id: product.id,
+          price: product.price,
+          image: product.img,
+        });
+      } catch (error) {
+        console.error('Error fetching product data:', error);
+      }
+    };
+
+    // Fetch product data when the component mounts
+    fetchProductData();
+  }, [productId]);
+
+  const handleChange = (e) => {
+    setProductData({ ...productData, [e.target.name]: e.target.value });
+  };
+
+  const handleSave = async () => {
+    try {
+      // Send a request to update the product
+      await axiosRequest.put(`/items/${productId}`, productData);
+      console.log('Product updated successfully!');
+    } catch (error) {
+      console.error('Error updating product:', error);
+    }
+  };
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-md shadow-md mb-5">
@@ -69,6 +76,7 @@ const EditProduct = () => {
           value={productData.id}
           onChange={handleChange}
           className="border rounded w-full py-2 px-3"
+          readOnly
         />
       </div>
       <div className="mb-4">
@@ -105,14 +113,13 @@ const EditProduct = () => {
           Save
         </button>
         <button
-       
           className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
         >
           Cancel
         </button>
       </div>
     </div>
-  )
+  );
 }
 
 export default EditProduct

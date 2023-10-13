@@ -1,22 +1,34 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import start_icon from '../Assets/star_icon.png';
 import start_dull_icon from '../Assets/star_dull_icon.png';
-import { ItemsContext } from '../ItemsContext/ItemsContext';
 import axiosRequest from '../../Utilis/axiosRequest';
 import { useParams } from 'react-router-dom';
 import { backEndbaseURL } from '../../Utilis/baseUrl';
+import {useContext} from "react"
+import { ItemsContext } from '../ItemsContext/ItemsContext'
 
-const ProductDisplay = (props) => {
-  const { itemId } = useParams();
+
+
+const ProductDisplay = () => {
+  const { productId } = useParams();
   const [newProduct, setNewProduct] = useState({});
-  const { addToCART } = useContext(ItemsContext);
   const [loading, setLoading] = useState(true);
+  const {products,cartItem,addToCart ,getTotalAmountCart,removeFromCART} =useContext(ItemsContext)
 
-  useEffect(() => {
+
+  
+  const handleAddToCart = () => {
+    // Assuming newProduct.id is the unique identifier for the product
+    addToCart(newProduct.id);
+    console.log('Add to cart clicked for product:', newProduct.id);
+  };
+
+useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axiosRequest.get(`/items/${itemId}`);
-        console.log(response);
+      // Add this line
+        const response = await axiosRequest.get(`/items/${productId}`);
+        console.log('response of display page', response);
         setNewProduct(response.data ?? {});
       } catch (error) {
         console.error('Error fetching product:', error.message);
@@ -24,16 +36,17 @@ const ProductDisplay = (props) => {
         setLoading(false);
       }
     };
-
+  
     fetchProduct();
-  }, [itemId]);
+  }, [productId]);
+  
 
   if (loading) {
-    return <p>Loading...</p>; // You can replace this with a loading spinner or component
+    return <p>Loading...</p>; 
   }
 
   return (
-    <div className="mt-0 mr-170 flex ml-10">
+    <div className="mt-10 mr-170 flex ml-10 mb-10">
       <div className="flex gap-10 rounded-md">
         <div className="flex gap-10">
           <div className="flex flex-col gap-5">
@@ -50,7 +63,7 @@ const ProductDisplay = (props) => {
       </div>
 
       <div className="flex flex-col ml-10">
-        <h1 className="text-3xl font-bold text-[#3a3a3a]">{newProduct.name}</h1>
+        <h1 className="text-3xl font-bold text-[#3a3a3a]">{newProduct?.name}</h1>
 
         <div className="flex items-center gap-2 mt-5">
           <img src={start_icon} alt="" />
@@ -70,14 +83,12 @@ const ProductDisplay = (props) => {
         </div>
 
         <div>
-          <button
-            className="border-none outline-none cursor-pointer bg-red-500 text-white font-bold rounded-md p-3 flex items-center justify-center"
-            onClick={() => {
-              addToCART(newProduct.id);
-            }}
-          >
-            Add to cart
-          </button>
+        <button
+        className="border-none outline-none cursor-pointer bg-red-500 text-white font-bold rounded-md p-3 flex items-center justify-center"
+        onClick={handleAddToCart} // Call the function on click
+      >
+        Add to cart
+      </button>
         </div>
 
         <p className="mt-10">

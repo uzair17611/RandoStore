@@ -3,9 +3,8 @@ import Items from '../Items/Items'
 import { ItemsContext } from '../ItemsContext/ItemsContext'
 import remove_icon from "../Assets/cart_cross_icon.png"
 const Cartitem = () => {
-    const {all_Product ,cartItem,addToCART ,getTotalAmountCart,removeFromCART} =useContext(ItemsContext)
+    const {products,cartItem,addToCart ,getTotalAmountCart,removeFromCart} =useContext(ItemsContext)
 
-    console.log("cartItem all product" , all_Product )
   return (
     <div  className="ml-10">
      <div className='grid  grid-cols-[0.5fr,2fr,1fr,1fr,1fr,1fr] items-center gap-10 p-4 text-[#454545]  font-bold'>
@@ -18,35 +17,23 @@ const Cartitem = () => {
      </div>
      <hr className="border-t border-gray-500 my-4" />
 
-     {/* <div>
-        <div>
-            <img src="" alt="" />
-            <p></p>
-            <p></p>
-            <button></button>
-            <p></p>
-            <img src="" alt=""  onClick={()=>{removeFromCART()}} />
-        </div>
-        <hr className="border-t border-gray-500 my-4" />
-
-     </div> */}
      <div>
-  {all_Product.map((e) => {
+  {products.map((e) => {
     if (cartItem[e.id] > 0) {
       return (
         <div key={e.id}>
           <div className='grid  grid-cols-[0.5fr,2fr,1fr,1fr,1fr,1fr] items-center gap-10 p-4 text-[#454545]  font-bold'>
-            <img src={e.image} alt="" className="rounded-full" />
+            <img src={e.img} alt="" className="rounded-full" />
             <p  className="text-base font-medium">{e.name}</p>
             {/* <p>{e.id}</p> */}
-            <p>${e.new_price}</p>
+            <p>${e.price}</p>
             <button className="py-1 bg-red-500 text-white rounded-md w-[32px] cursor-pointer">{cartItem[e.id]}</button>
-            <p>{(e.new_price)*cartItem[e.id]}</p>
+            <p>{(e.price)*cartItem[e.id]}</p>
             <img
               src={remove_icon}
               alt=""
               onClick={() => {
-                removeFromCART(e.id);
+                removeFromCart(e.id);
               }}
             />
           </div>

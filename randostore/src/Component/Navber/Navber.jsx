@@ -11,7 +11,7 @@ import { ItemsContext } from '../ItemsContext/ItemsContext';
 const Navber = () => {
     const{getTotalCartItem} =useContext(ItemsContext)
   return (
-    <div className='flex justify-around p-14  shadow-md'>
+    <div className='flex justify-around p-14 h-10  shadow-md'>
       <div className='flex items-center gap-10'>
         <img src={logo} alt="" />
         <p className='text-black text-3xl font-bold'>RandoStore</p>
