@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import axiosRequest from '../Utilis/axiosRequest';
 import { backEndbaseURL } from '../Utilis/baseUrl';
+import { useNavigate } from 'react-router-dom';
 
 const AddNewProduct = () => {
+
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
-    image: '',
+    img: '',
     name: '',
     price: '',
     id: '',
@@ -13,7 +16,8 @@ const AddNewProduct = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    const processedValue = name === 'image' ? backEndbaseURL + '/' + value : value;
+   
+  
 
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
@@ -30,7 +34,7 @@ const AddNewProduct = () => {
 
       // Reset the form after successful submission
       setFormData({
-        image: '',
+        img: '',
         name: '',
         price: '',
         id: '',
@@ -38,6 +42,8 @@ const AddNewProduct = () => {
     } catch (error) {
       console.error('Error:', error.message);
     }
+
+    navigate("/")
   };
 
   return (
@@ -51,7 +57,7 @@ const AddNewProduct = () => {
           <input
             type="text"
             id="image"
-            name="image"
+            name="img"
             value={formData.img}
             onChange={handleInputChange}
             className="mt-1 p-2 w-full border rounded-md focus:ring focus:border-blue-300"
@@ -103,7 +109,8 @@ const AddNewProduct = () => {
         <button
           type="submit"
           className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
-        >
+        
+       >
           Add Product
         </button>
       </form>

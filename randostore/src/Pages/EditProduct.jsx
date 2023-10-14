@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axiosRequest from '../Utilis/axiosRequest';
 import { useParams } from 'react-router-dom';
 import { backEndbaseURL } from '../Utilis/baseUrl';
-
-
-
+import { useNavigate } from 'react-router-dom';
 const EditProduct = () => {
-    const { productId } = useParams();
+
+  const navigate = useNavigate()
+  const { productId } = useParams();
   const [productData, setProductData] = useState({
     name: '',
     id: '',
     price: '',
-    image: '',
+    img: '',
   });
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const EditProduct = () => {
           name: product.name,
           id: product.id,
           price: product.price,
-          img: backEndbaseURL + '/' + (productData?.img || ''),
+          img:product.img
         });
       } catch (error) {
         console.error('Error fetching product data:', error);
@@ -48,7 +48,9 @@ const EditProduct = () => {
     } catch (error) {
       console.error('Error updating product:', error);
     }
+    navigate("/")
   };
+
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-md shadow-md mb-5">
@@ -94,14 +96,14 @@ const EditProduct = () => {
         />
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="image">
+        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="img">
           Image URL:
         </label>
         <input
           type="text"
-          id="image"
-          name="image"
-          value={backEndbaseURL + '/' + (productData?.img || '')}
+          id="img"
+          name="img"
+          value={productData?.img}
           onChange={handleChange}
           className="border rounded w-full py-2 px-3"
         />
@@ -121,6 +123,6 @@ const EditProduct = () => {
       </div>
     </div>
   );
-}
+};
 
-export default EditProduct
+export default EditProduct;

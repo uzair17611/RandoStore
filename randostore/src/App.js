@@ -3,7 +3,6 @@ import './App.css';
 import Navber from './Component/Navber/Navber.jsx';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ListItems from './Pages/ListItems';
-import CatagoryPage from './Pages/CatagoryPage.jsx';
 import Cart from './Pages/Cart.jsx';
 import LoginSignup from './Pages/LoginSignup.jsx';
 import Products from "./Pages/Products.jsx";

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Link} from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
 import axiosRequest from '../../Utilis/axiosRequest'
@@ -7,20 +7,21 @@ import axiosRequest from '../../Utilis/axiosRequest'
 const Items = (props) => {
 
     const navigate=useNavigate();
+
     const handleDelete = async () => {
         try {
           console.log('Deleting product:', props.id);
           // Make a DELETE request to delete the specific product
           await axiosRequest.delete(`/items/${props.id}`);
           console.log('Product deleted successfully');
-          
+          window.location.reload();
           // Call the onDelete callback to handle any additional logic in the parent component
         
         } catch (error) {
           console.error('Error:', error.message);
         }
     };
-    console.log(props.id)
+   
 
 
     console.log(props.image)

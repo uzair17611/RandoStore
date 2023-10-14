@@ -82,7 +82,7 @@ useEffect(() => {
 
         <div>
         <button
-        className="border-none outline-none cursor-pointer bg-red-500 text-white font-bold rounded-md p-3 flex items-center justify-center"
+        className="border-none outline-none cursor-pointer mt-5  bg-red-500 text-white font-bold rounded-md p-3 flex items-center justify-center"
         onClick={handleAddToCart} // Call the function on click
       >
         Add to cart

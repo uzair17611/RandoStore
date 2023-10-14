@@ -18,23 +18,8 @@ const Navber = () => {
 
       </div>
       <ul className='text-lg font-medium no-underline flex items-center text-[#626262] gap-10 font-md '>
-  <li className='flex items-center justify-center gap-2 cursor-pointer transition-transform transform hover:scale-105 hover:text-blue-500'>
-    <Link to="/">Shop</Link>
-  </li>
-  <li className='flex items-center justify-center gap-2 cursor-pointer transition-transform transform hover:scale-105 hover:text-blue-500 hover:shadow-md'>
-    <Link to="/men">MEN</Link>
-  </li>
-  <li className='flex items-center justify-center gap-2 cursor-pointer transition-transform transform hover:scale-105 hover:text-blue-500 hover:shadow-md'>
-    <Link to="/women">Women</Link>
-  </li>
-  <li className='flex items-center justify-center gap-2 cursor-pointer transition-transform transform hover:scale-105 hover:text-blue-500 hover:shadow-md'>
-    <Link to="/kids">Kids</Link>
-  </li>
   <li className='flex items-center justify-center gap-2 cursor-pointer transition-transform transform hover:scale-105 hover:text-blue-500 hover:shadow-md'>
     <Link to="/AddnewPrduct">Add new Product</Link>
-  </li>
-  <li className='flex items-center justify-center gap-2 cursor-pointer transition-transform transform hover:scale-105 hover:text-blue-500 hover:shadow-md'>
-    <Link to="/edit">Edit Products</Link>
   </li>
 </ul>
 
