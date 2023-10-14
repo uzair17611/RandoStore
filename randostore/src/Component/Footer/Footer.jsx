@@ -6,7 +6,7 @@ import pinterest from "../Assets/pintester_icon.png"
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#fde1ff] via-[#e1ffea22] to-transparent text-gray-800 p-10">
+    <footer className="bg-gradient-to-r from-pink-200 via-purple-200 to-indigo-200 p-10">
   <div className="container mx-auto flex flex-wrap">
     {/* Quick Links */}
     <div className="w-full md:w-1/4">

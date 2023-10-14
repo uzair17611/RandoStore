@@ -3,7 +3,7 @@ import logo from "../Assets/logo.png"
 import cart_icon from "../Assets/cart_icon.png"
 import { Link } from 'react-router-dom';
 import { ItemsContext } from '../ItemsContext/ItemsContext';
-
+import Rando_STORE  from "../Assets/RandoStore.png"
 
 
 
@@ -11,10 +11,10 @@ import { ItemsContext } from '../ItemsContext/ItemsContext';
 const Navber = () => {
     const{getTotalCartItem} =useContext(ItemsContext)
   return (
-    <div className='flex justify-around p-14 h-10  shadow-md'>
+    <div className='flex justify-around p-14 h-10  shadow-md bg-gradient-to-r from-pink-200 via-purple-200 to-indigo-200'>
       <div className='flex items-center gap-10'>
-        <img src={logo} alt="" />
-        <p className='text-black text-3xl font-bold'>RandoStore</p>
+        <img src={Rando_STORE } alt="" className="w-[200px] h-[200px]" />
+       
 
       </div>
       <ul className='text-lg font-medium no-underline flex items-center text-[#626262] gap-10 font-md '>

@@ -60,7 +60,7 @@ const EditProduct = () => {
           type="text"
           id="name"
           name="name"
-          value={productData.name}
+          value={productData?.name}
           onChange={handleChange}
           className="border rounded w-full py-2 px-3"
         />
@@ -73,7 +73,7 @@ const EditProduct = () => {
           type="text"
           id="id"
           name="id"
-          value={productData.id}
+          value={productData?.id}
           onChange={handleChange}
           className="border rounded w-full py-2 px-3"
           readOnly
@@ -87,7 +87,7 @@ const EditProduct = () => {
           type="text"
           id="price"
           name="price"
-          value={productData.price}
+          value={productData?.price}
           onChange={handleChange}
           className="border rounded w-full py-2 px-3"
         />
@@ -100,7 +100,7 @@ const EditProduct = () => {
           type="text"
           id="image"
           name="image"
-          value={productData.image}
+          value={productData?.image}
           onChange={handleChange}
           className="border rounded w-full py-2 px-3"
         />

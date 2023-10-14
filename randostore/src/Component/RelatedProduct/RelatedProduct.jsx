@@ -1,8 +1,27 @@
 import React from 'react'
-import data_product from '../Assets/data'
 import Items from '../Items/Items'
+import axiosRequest from '../../Utilis/axiosRequest';
+
+import {useState,useEffect} from "react"
 
 const RelatedProduct = () => {
+    const [product, setProduct] = useState([]);
+
+    useEffect(() => {
+        const fetchProduct = async () => {
+          try {
+            const response = await axiosRequest.get("/items");
+            console.log(response);
+        
+            setProduct(response.data ?? []);
+          
+          } catch (error) {
+            console.log(error);
+          }
+        };
+    
+        fetchProduct();
+      }, []);
   return (
     <div className="flex flex-col items-center h-[90vh] mt-10">
 
@@ -10,14 +29,14 @@ const RelatedProduct = () => {
         <hr  className="border-t-2 border-gray-300 my-6 h-12 w-[50px]" />
         <div className="grid grid-cols-4 gap-2">
          {
-            data_product.map((item, i)=>{
+            product.map((item, i)=>{
 
                 return( <Items key={i} 
-                    id={item.id}  
-                    name={item.name}  
-                    image={item.image} 
-                     new_price={item.new_price}
-                      old_price={item.old_price}/>)
+                    id={item?.id}  
+                    name={item?.name}  
+                    image={backEndbaseURL + "/" + (item?.img || '')} 
+                     new_price={item?.price}
+                      />)
                 
                 
             })

@@ -26,15 +26,13 @@ const NewCollection = () => {
   }, []);
 
   return (
-    <div className="flex flex-col flex-wrap items-center h-auto mt-20 ">
-  <h1 className="text-3xl font-bold mb-4">New Collection</h1>
+    <div className="flex flex-col flex-wrap items-center h-auto   mb-20 bg-gradient-to-r from-white via-pink-100 to-teal-100 ">
+  <h1 className="text-3xl font-bold mb-4 mt-5">New Collection</h1>
   <hr className="w-1/4 mb-4" />
   <div className="grid grid-cols-4 gap-4 ">
     {product?.map((Singleproduct, i) => (
-
-     
-    
         <Items
+          key={Singleproduct.id}
           name={Singleproduct?.name}
           id={Singleproduct?.id}
           image={backEndbaseURL + '/' + (Singleproduct?.img || '')}
