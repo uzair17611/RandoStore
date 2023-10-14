@@ -3,28 +3,7 @@ import arrow_icon from "../Assets/breadcrum_arrow.png"
 import axiosRequest from '../../Utilis/axiosRequest';
 const BreadCrums = ({product}) => {
 
-       console.log("breadScrums" ,props)
-    // const [newProduct, setNewProduct] = useState({});
-
-    // const [loading, setLoading] = useState(true);
-  
-
-    // useEffect(() => {
-    //   const fetchProduct = async () => {
-    //     try {
-    //       const response = await axiosRequest.get("/items");
-    //       console.log(response);
-    //       setNewProduct(response.data ?? {});
-    //     } catch (error) {
-    //       console.error('Error fetching product:', error.message);
-    //     } finally {
-    //       setLoading(false);
-    //     }
-    //   };
-  
-    //   fetchProduct();
-    // }, []);
- 
+    console.log(product)
     
 
     

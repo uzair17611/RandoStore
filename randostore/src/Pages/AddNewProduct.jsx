@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import axiosRequest from '../Utilis/axiosRequest';
+import { backEndbaseURL } from '../Utilis/baseUrl';
 
 const AddNewProduct = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,8 @@ const AddNewProduct = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    const processedValue = name === 'image' ? backEndbaseURL + '/' + value : value;
+
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
@@ -49,7 +52,7 @@ const AddNewProduct = () => {
             type="text"
             id="image"
             name="image"
-            value={formData.image}
+            value={formData.img}
             onChange={handleInputChange}
             className="mt-1 p-2 w-full border rounded-md focus:ring focus:border-blue-300"
             required

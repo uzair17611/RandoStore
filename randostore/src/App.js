@@ -24,11 +24,10 @@ function App() {
         <Routes>
           <Route path="/" element={<ListItems />} />
       
-          <Route path="/product" element={<Products/>}>
-
-        
+          <Route path="/product" element={<Products />}>
+          <Route path=":productId" element={<Products />}/>
           </Route>
-          <Route path="/product/:productId" element={<ProductDisplay />} />
+          {/* <Route path="/product/:productId" element={<ProductDisplay />} /> */}
           <Route path="/cart" element={<Cart />} />
           <Route path="/NewCollection" element={<NewCollection/>} />
           <Route path="/login" element={<LoginSignup/>} />

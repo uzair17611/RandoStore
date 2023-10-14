@@ -41,9 +41,7 @@ useEffect(() => {
   }, [productId]);
   
 
-  if (loading) {
-    return <p>Loading...</p>; 
-  }
+
 
   return (
     <div className="mt-10 mr-170 flex ml-10 mb-10">

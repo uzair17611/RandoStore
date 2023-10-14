@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axiosRequest from '../Utilis/axiosRequest';
 import { useParams } from 'react-router-dom';
+import { backEndbaseURL } from '../Utilis/baseUrl';
 
 
 
@@ -24,7 +25,7 @@ const EditProduct = () => {
           name: product.name,
           id: product.id,
           price: product.price,
-          image: product.img,
+          img: backEndbaseURL + '/' + (productData?.img || ''),
         });
       } catch (error) {
         console.error('Error fetching product data:', error);
@@ -100,7 +101,7 @@ const EditProduct = () => {
           type="text"
           id="image"
           name="image"
-          value={productData?.image}
+          value={backEndbaseURL + '/' + (productData?.img || '')}
           onChange={handleChange}
           className="border rounded w-full py-2 px-3"
         />
